@@ -1,0 +1,14 @@
+ JSON文件结构说明：
+
+ 1. 顶层结构 ：使用 patientTemplates 数组存储多个病人模板
+ 2. 每个模板包含 ：
+    - id ：模板唯一标识符
+    - caseType ：病例类型
+    - patientInfo ：病人详细信息，包含以下维度：
+      - basicInfo ：基本信息（年龄、性别、职业、生活背景）
+      - medicalHistory ：病史（既往疾病、手术史、过敏史）
+      - currentComplaint ：当前主诉
+      - diseaseCourse ：病程（发病时间、症状变化）
+      - personalCharacteristics ：个性化特征（习惯、文化程度、社会支持）
+      - clinicalPresentation ：临床表现维度（性格、语言熟练度、医疗史回忆水平、认知混乱程度）
+      - socialBackground ：社会背景维度（健康素养与认知模式、社会经济地位、文化信念与就医预期）

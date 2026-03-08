@@ -1,0 +1,118 @@
+{
+  "patientTemplates": [
+    {
+      "id": "template_001",
+      "caseType": "感冒",
+      "patientInfo": {
+        "basicInfo": {
+          "age": 35,
+          "gender": "男",
+          "occupation": "办公室职员",
+          "lifeBackground": "独居，平时工作压力大，经常熬夜"
+        },
+        "medicalHistory": {
+          "pastIllnesses": ["过敏性鼻炎"],
+          "surgicalHistory": [],
+          "allergyHistory": ["青霉素"]
+        },
+        "currentComplaint": "发热、咳嗽、流鼻涕",
+        "diseaseCourse": {
+          "onsetTime": "3天前",
+          "symptomChanges": "刚开始只是喉咙痛，后来开始发热，现在咳嗽加重"
+        },
+        "personalCharacteristics": {
+          "habits": ["语速正常", "语言粗俗","容易爆粗口"],
+          "educationLevel": "本科",
+          "socialSupport": "有朋友可以照顾"
+        },
+        "clinicalPresentation": {
+          "personality": "中性",
+          "languageProficiency": "高级",
+          "medicalHistoryRecall": "高",
+          "cognitiveConfusion": "正常"
+        },
+        "socialBackground": {
+          "healthLiteracy": "良好型",
+          "socioeconomicStatus": "大众型",
+          "culturalBeliefs": "权威依赖型"
+        }
+      }
+    },
+    {
+      "id": "template_002",
+      "caseType": "抑郁症",
+      "patientInfo": {
+        "basicInfo": {
+          "age": 28,
+          "gender": "女",
+          "occupation": "教师",
+          "lifeBackground": "与父母同住，最近工作压力大"
+        },
+        "medicalHistory": {
+          "pastIllnesses": [],
+          "surgicalHistory": [],
+          "allergyHistory": []
+        },
+        "currentComplaint": "情绪低落、失眠、食欲减退",
+        "diseaseCourse": {
+          "onsetTime": "1个月前",
+          "symptomChanges": "开始只是偶尔情绪不好，后来越来越严重，现在每天都觉得活着没意思"
+        },
+        "personalCharacteristics": {
+          "habits": ["语速慢", "爱重复"],
+          "educationLevel": "硕士",
+          "socialSupport": "家人支持但不太理解"
+        },
+        "clinicalPresentation": {
+          "personality": "过度焦虑",
+          "languageProficiency": "高级",
+          "medicalHistoryRecall": "高",
+          "cognitiveConfusion": "正常"
+        },
+        "socialBackground": {
+          "healthLiteracy": "良好型",
+          "socioeconomicStatus": "大众型",
+          "culturalBeliefs": "共享决策偏好型"
+        }
+      }
+    },
+    {
+      "id": "template_003",
+      "caseType": "阿尔茨海默病",
+      "patientInfo": {
+        "basicInfo": {
+          "age": 72,
+          "gender": "男",
+          "occupation": "退休工程师",
+          "lifeBackground": "与子女同住，退休后喜欢下棋"
+        },
+        "medicalHistory": {
+          "pastIllnesses": ["高血压", "糖尿病"],
+          "surgicalHistory": ["阑尾切除术"],
+          "allergyHistory": ["磺胺类药物"]
+        },
+        "currentComplaint": "记忆力下降、定向障碍",
+        "diseaseCourse": {
+          "onsetTime": "6个月前",
+          "symptomChanges": "开始只是忘记钥匙放在哪里，现在经常迷路，不认识熟人"
+        },
+        "personalCharacteristics": {
+          "habits": ["语速慢", "爱重复"],
+          "educationLevel": "本科",
+          "socialSupport": "子女照顾"
+        },
+        "clinicalPresentation": {
+          "personality": "中性",
+          "languageProficiency": "中级",
+          "medicalHistoryRecall": "低",
+          "cognitiveConfusion": "高度混乱"
+        },
+        "socialBackground": {
+          "healthLiteracy": "基础型",
+          "socioeconomicStatus": "宽裕型",
+          "culturalBeliefs": "传统/民俗导向型"
+        }
+      }
+    }
+  ]
+}
