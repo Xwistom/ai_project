@@ -1,7 +1,10 @@
 from llm import *
 from indextts.infer_v2 import IndexTTS2
 import re
-i
+import subprocess
+
+#uv run ai.copy\ai\main.py
+
 
 tts = IndexTTS2(cfg_path="checkpoints/config.yaml", model_dir="checkpoints",
                 use_fp16=False, use_cuda_kernel=False, use_deepspeed=False)
@@ -22,18 +25,11 @@ def main():
             "content": system_prompt
         }
     ]
-    #初始化音频文件夹
-    folder_path = "mp3\\"
-
-    for filename in os.listdir(folder_path):
-        if filename.endswith(".wav"):
-            file_path = os.path.join(folder_path, filename)
-            os.remove(file_path)
-            # print(f"已删除: {file_path}")
-
     print_header()
     #视频序号/计数
     num_vidio=0
+    #一整句话的数量
+    num_he=0
     # 对话循环
     while True:
         try:
@@ -80,6 +76,15 @@ def main():
                     "role": "assistant",
                     "content": ai_response
                 })
+
+                #初始化音频文件夹
+                folder_path = "mp3\\"
+
+                for filename in os.listdir(folder_path):
+                    if filename.endswith(".wav"):
+                        file_path = os.path.join(folder_path, filename)
+                        os.remove(file_path)
+
                 NO=0
                 text = ai_response
                 numbers, strings = process_string(text)
@@ -89,6 +94,36 @@ def main():
                                    verbose=True)
                     num_vidio+=1
                     NO += 1
+
+
+                # 将文件列表写入一个临时文本文件
+                list_file_path = "mylist.txt"
+                with open(list_file_path, "w", encoding="utf-8") as f:
+                    for filename in os.listdir(folder_path):
+                        f.write("file 'mp3\{}'".format(filename)+"\n")
+
+                # 输出文件名
+                output_file = "mp3_he\merged{}.wav".format(num_he)
+
+                # 构建 FFmpeg 命令
+                command = [
+                    "ffmpeg",
+                    "-f", "concat",  # 使用 concat 协议
+                    "-safe", "0",  # 允许使用绝对路径（如果需要）
+                    "-i", list_file_path,  # 指定列表文件为输入
+                    "-c", "copy",  # 直接复制，不重新编码
+                    "-y",  # 自动覆盖输出文件（可选）
+                    output_file
+                ]
+
+                # 执行命令
+                try:
+                    subprocess.run(command, check=True, capture_output=True, text=True)
+                    print(f"拼接成功，输出文件：{output_file}")
+                    num_he+=1
+                except subprocess.CalledProcessError as e:
+                    print(f"拼接失败：{e.stderr}")
+
             print()  # 空行
 
         except KeyboardInterrupt:
