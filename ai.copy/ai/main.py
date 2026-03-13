@@ -1,6 +1,8 @@
 from llm import *
 from indextts.infer_v2 import IndexTTS2
 import re
+i
+
 tts = IndexTTS2(cfg_path="checkpoints/config.yaml", model_dir="checkpoints",
                 use_fp16=False, use_cuda_kernel=False, use_deepspeed=False)
 
@@ -20,6 +22,14 @@ def main():
             "content": system_prompt
         }
     ]
+    #初始化音频文件夹
+    folder_path = "mp3\\"
+
+    for filename in os.listdir(folder_path):
+        if filename.endswith(".wav"):
+            file_path = os.path.join(folder_path, filename)
+            os.remove(file_path)
+            # print(f"已删除: {file_path}")
 
     print_header()
     #视频序号/计数
